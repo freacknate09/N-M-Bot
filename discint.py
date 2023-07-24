@@ -23,11 +23,8 @@ async def lease(ctx,
     touser: discord.Option(discord.SlashCommandOptionType.string),
     aircraftreg: discord.Option(discord.SlashCommandOptionType.string)
     ):
-    if fse.checkLeased(aircraftreg):
-        response = "Aircraft Not Leased"
-    else:
-        fse.leaseACReg(fromuser, touser, aircraftreg)
-        response = "Aircraft Leased"
+    fse.leaseACReg(fromuser, touser, aircraftreg)
+    response = "Aircraft Leased"
     await ctx.respond(response)
 
 @bot.slash_command(guild_ids = guilds)
